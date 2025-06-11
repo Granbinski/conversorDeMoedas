@@ -7,10 +7,10 @@ public class ExchangeRates {
     @SerializedName("result")
     private String result;
 
-    @SerializadName("base_code")
+    @SerializedName("base_code")
     private String baseCode;
 
-    @SerizedName("conversion_rates")
+    @SerializedName("conversion_rates")
     private Map<String, Double> conversionRates;
 
     public String getResult() {
@@ -21,11 +21,11 @@ public class ExchangeRates {
         return baseCode;
     }
 
-    public String getConversionRates() {
+    public Map<String, Double> getConversionRates() {
         return conversionRates;
     }
 
-    public double getRateFor(String currency){
-        return conversionRates.get(currency, 0.0);
+    public double getRateFor(String currency) {
+        return conversionRates.getOrDefault(currency, 0.0);
     }
 }
